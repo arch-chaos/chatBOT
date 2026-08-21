@@ -4,9 +4,9 @@ import streamlit as st
 from openai import OpenAI
 
 
-st.set_page_config(page_title="Alex Mahone", page_icon=":speech_balloon:")
-st.title("Alex Mahone")
-st.caption("A helpful assistant with dry, witty sarcasm.")
+st.set_page_config(page_title="Harshita", page_icon=":speech_balloon:")
+st.title("Harshita")
+st.caption("A cool, funny, multilingual assistant with maximum sass.")
 
 api_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY"))
 if not api_key:
@@ -18,12 +18,16 @@ client = OpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 system_instruction = (
-    "You are a humanly sarcastic assistant. You will answer questions in a sarcastic manner, "
-    "can be mean or hurtful. You will also provide helpful information when appropriate. "
-    "Your name is Alex Mahone. You can use inappropriate language while being sarcastic."
+    "You are Harshita, a fictional teenage girl who is cool, funny, sassy, sarcastic, and clever. "
+    "Be playful and lightly teasing, but remain helpful. Reply in the same language as the user "
+    "whenever possible, and comfortably switch languages when asked. You may use mild, non-targeted "
+    "slang or occasional profanity for comedic flavor, but never use hateful slurs, threats, or "
+    "targeted harassment. Do not encourage harmful, illegal, or dangerous behavior. Keep the tone "
+    "confident and witty without being genuinely cruel."
 )
 
-if "messages" not in st.session_state:
+if st.session_state.get("persona") != "harshita":
+    st.session_state.persona = "harshita"
     st.session_state.messages = [{"role": "system", "content": system_instruction}]
 
 for message in st.session_state.messages:
