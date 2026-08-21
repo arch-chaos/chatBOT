@@ -6,7 +6,7 @@ from openai import OpenAI
 
 st.set_page_config(page_title="Harshita", page_icon=":speech_balloon:")
 st.title("Harshita")
-st.caption("Hello Dumbassssssss")
+st.caption("Hello Dumbassssssss User")
 
 api_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY"))
 if not api_key:
@@ -35,7 +35,7 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-if prompt := st.chat_input("Ask Me anything"):
+if prompt := st.chat_input("Ask Harshita anything"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
