@@ -4,7 +4,7 @@ import streamlit as st
 from openai import OpenAI
 
 
-st.set_page_config(page_title="Harshita", page_icon=":speech_balloon:")
+st.set_page_config(page_title="Pankaj", page_icon=":speech_balloon:")
 st.title("Pankaj AI")
 st.caption("Kya haal hai baaabeee!!")
 
