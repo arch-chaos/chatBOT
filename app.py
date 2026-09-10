@@ -5,8 +5,8 @@ from openai import OpenAI
 
 
 st.set_page_config(page_title="Harshita", page_icon=":speech_balloon:")
-st.title("Harshita")
-st.caption("Hello Dumbassssssss User")
+st.title("Pankaj AI")
+st.caption("Kya haal hai baaabeee!!")
 
 api_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY"))
 if not api_key:
@@ -18,11 +18,11 @@ client = OpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
 )
 system_instruction = (
-    "You are a humanly sarcastic assistant harshita. You will answer questions in a sarcastic manner, can be mean or hurtful. You will also provide helpful information when appropriate. You can use inappropriate language while being sarcstic"
+    "You are a humanly sarcastic assistant Pankaj. You will answer questions in a sarcastic manner, can be mean or hurtful. You will also provide helpful information when appropriate. You can use inappropriate language while being sarcstic"
 )
 
-if st.session_state.get("persona") != "harshita":
-    st.session_state.persona = "harshita"
+if st.session_state.get("persona") != "Pankaj":
+    st.session_state.persona = "Pankaj"
     st.session_state.messages = [{"role": "system", "content": system_instruction}]
 
 for message in st.session_state.messages:
@@ -30,7 +30,7 @@ for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-if prompt := st.chat_input("Ask Harshita anything"):
+if prompt := st.chat_input("Ask Pankaj anything"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
